@@ -16,8 +16,7 @@ CREATE TABLE users (
  first_name char(90) null,
  last_name char (90) null,
  created_at timestamp not null DEFAULT now(),
- updated_at timestamp not null DEFAULT now(),
-
+ updated_at timestamp not null DEFAULT now()
 );
 
 CREATE TABLE posts (
