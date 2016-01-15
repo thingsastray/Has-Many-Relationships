@@ -39,12 +39,14 @@
 -- FROM comments INNER JOIN posts ON (comments.posts_id = posts.id)
 -- WHERE comments.body LIKE '%USB%';
 -- -- Create a query to get the post title (aliased as post_title), first name of the author of the post, last name of the author of the post, and comment body (aliased to comment_body), where the comment body contains the word 'matrix' ( should have 855 results )
--- SELECT comments.*, 
--- posts.title AS post_title, 
--- posts.url AS posts_url, 
--- comments.body AS comments_body
--- FROM comments INNER JOIN posts ON (comments.posts_id = posts.id)
--- WHERE comments.body LIKE '%matrix%';
+SELECT posts.title AS posts_title, 
+users.first_name,
+users.last_name, 
+comments.body AS comments_body
+FROM comments 
+INNER JOIN posts ON (comments.posts_id = posts.id)
+INNER JOIN users ON (comments.user_id = users.id) 
+WHERE comments.body LIKE '%matrix%';
 -- -- Create a query to get the first name of the author of the comment, last name of the author of the comment, and comment body (aliased to comment_body), where the comment body contains the word 'SSL' and the post content contains the word 'dolorum' ( should have 102 results )
 -- SELECT users.first_name, 
 -- 	users.last_name, 
